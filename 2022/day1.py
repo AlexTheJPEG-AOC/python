@@ -1,15 +1,12 @@
 items = []
 totals = []
-while True:
-    try:
-        item = input()
+with open("input1.txt", "r") as file:
+    for item in file.read().splitlines():
         if item.isdigit():
             items.append(int(item))
         else:
             totals.append(sum(items))
             items = []
-    except EOFError:
-        break
 
 totals.sort(reverse=True)
 print(totals[0])
