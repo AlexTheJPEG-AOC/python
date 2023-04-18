@@ -7,13 +7,13 @@ def smallest_side_area(length, width, height):
 
 
 def smallest_perimeter(length, width, height):
-    return min(2 * length + 2 * width,
-               2 * width + 2 * height,
+    return min(2 * length + 2 * width, 2 * width + 2 * height,
                2 * height + 2 * length)
 
 
 def volume(length, width, height):
     return length * width * height
+
 
 wrapping_paper = 0
 ribbon = 0
