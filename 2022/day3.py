@@ -1,27 +1,20 @@
-priority_sum = 0
+part1_priority_sum = 0
+part2_priority_sum = 0
 values = list(' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
+with open("input3.txt", "r") as file:
+    rucksacks = file.read().splitlines()
 
-# Part 1
-"""
-while True:
-    try:
-        rucksack = input()
-        first, second = set(rucksack[:len(rucksack)//2]), set(rucksack[len(rucksack)//2:])
-        common = first.intersection(second)
-        for element in common:
-            priority_sum += values.index(element)
-    except EOFError:
-        break
-"""
+for rucksack in rucksacks:
+    first, second = set(rucksack[:len(rucksack)//2]), set(rucksack[len(rucksack)//2:])
+    common = first.intersection(second)
+    for element in common:
+        part1_priority_sum += values.index(element)
 
-# Part 2
-while True:
-    try:
-        rucksacks = [set(input()) for i in range(3)]
-        common = rucksacks[0].intersection(*rucksacks)
-        for element in common:
-            priority_sum += values.index(element)
-    except EOFError:
-        break
+rucksack_groups = [[set(rucksack) for rucksack in rucksacks[i:i+3]] for i in range(0, len(rucksacks), 3)]
+for group in rucksack_groups:
+    common = group[0].intersection(*group)
+    for element in common:
+        part2_priority_sum += values.index(element)
 
-print(priority_sum)
+print(part1_priority_sum)
+print(part2_priority_sum)
