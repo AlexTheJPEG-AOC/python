@@ -1,9 +1,7 @@
 trees = []
-while True:
-    try:
-        trees.append([int(i) for i in input()])
-    except EOFError:
-        break
+with open("input8.txt", "r") as file:
+    for item in file.read().splitlines():
+        trees.append([int(i) for i in item])
 
 # The edges are visible
 visible = (len(trees[0]) * 2)  # The top and bottom rows
