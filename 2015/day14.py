@@ -23,7 +23,6 @@ for line in stats:
     sp = line.split()
     reindeer.append(Reindeer(sp[0], int(sp[3]), int(sp[6]), int(sp[-2])))
 
-
 RACE_FINISH = 2503
 
 # Part 1
