@@ -13,10 +13,11 @@ def part1_is_nice(string):
     if not three_plus_vowels:
         return False
 
-    twice_in_a_row = any(string[c] == string[c + 1] for c in range(len(string) - 1))
+    twice_in_a_row = any(string[c] == string[c + 1]
+                         for c in range(len(string) - 1))
     if not twice_in_a_row:
         return False
- 
+
     contains_forbidden = any(f in string for f in forbidden)
     if contains_forbidden:
         return False
@@ -28,17 +29,17 @@ def part2_is_nice(string):
     two_letters = []
     two_letter_appears_twice = False
     for c in range(len(string) - 1):
-        if (two_letter := string[c:c+2]) in two_letters:
-            if string[c-1:c+1] != two_letter:
+        if (two_letter := string[c:c + 2]) in two_letters:
+            if string[c - 1:c + 1] != two_letter:
                 two_letter_appears_twice = True
                 break
-        two_letters.append(string[c:c+2])
+        two_letters.append(string[c:c + 2])
     if not two_letter_appears_twice:
         return False
 
     letter_sandwich = False
     for c in range(len(string) - 2):
-        three_letter = string[c:c+3]
+        three_letter = string[c:c + 3]
         if three_letter[0] == three_letter[-1]:
             letter_sandwich = True
             break
