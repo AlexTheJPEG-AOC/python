@@ -34,11 +34,12 @@ def find_max_happiness():
 
     return max(table_happinesses)
 
+
 print(find_max_happiness())
 
 people = list(legend.keys())
 legend["Alex"] = dict()
 for person in people:
-   legend["Alex"][person] = 0 
-   legend[person]["Alex"] = 0
+    legend["Alex"][person] = 0
+    legend[person]["Alex"] = 0
 print(find_max_happiness())
